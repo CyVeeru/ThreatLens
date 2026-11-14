@@ -1,0 +1,20 @@
+# Check text out with LF on every platform.
+#
+# Without this, a Windows clone with core.autocrlf=true gets CRLF files, and
+# Prettier (endOfLine: lf) reports every one of them as unformatted, so
+# `npm run check` fails on a pristine checkout.
+* text=auto eol=lf
+
+# Binary assets: never touch their bytes.
+*.db     binary
+*.png    binary
+*.webp   binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.mp4    binary
+*.woff   binary
+*.woff2  binary
+*.docx   binary
+*.pdf    binary

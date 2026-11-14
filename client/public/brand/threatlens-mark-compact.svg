@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ThreatLens">
+  <defs>
+    <linearGradient id="tlBadge" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10B981"/>
+      <stop offset="1" stop-color="#0B6B53"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="13" fill="url(#tlBadge)"/>
+
+  <!-- Iris: six blades stopped down to a hexagonal opening. -->
+  <path d="M 11 32 A 21 21 0 1 1 53 32 A 21 21 0 1 1 11 32 Z M 42.4 38.004 L 32 44.009 L 21.6 38.004 L 21.6 25.996 L 32 19.991 L 42.4 25.996 Z" fill="#FFFFFF" fill-rule="evenodd"/>
+
+  <!-- Blade seams, offset tangentially the way overlapping blades sit. -->
+  <g stroke="url(#tlBadge)" stroke-width="3.4" stroke-linecap="butt">
+    <path d="M 42.4 38.004 L 42.4 50.244"/>
+    <path d="M 32 44.009 L 21.4 50.129"/>
+    <path d="M 21.6 38.004 L 11 31.885"/>
+    <path d="M 21.6 25.996 L 21.6 13.756"/>
+    <path d="M 32 19.991 L 42.6 13.871"/>
+    <path d="M 42.4 25.996 L 53 32.115"/>
+  </g>
+
+  <!-- Focal point: the one verified finding the lens resolves. -->
+  <circle cx="32" cy="32" r="5.4" fill="#F59E0B"/>
+</svg>

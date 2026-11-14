@@ -1,0 +1,29 @@
+# Keep local state and secrets out of the Docker build context and image layers.
+.git
+node_modules
+dist
+tmp
+.eslintcache
+*.tar.gz
+*.log
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+
+# Local runtime data (databases, encryption key, first-run passwords, uploads)
+data/*.db
+data/*.db-shm
+data/*.db-wal
+data/*.db-journal
+data/secrets/*.db
+data/secrets/*.db-shm
+data/secrets/*.db-wal
+data/secrets/*.db-journal
+data/.threatlens-kek
+data/initial-credentials.json
+data/uploads
+data/portraits
+data/dnstwist_screenshots
+data/private
