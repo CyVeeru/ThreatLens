@@ -36,6 +36,12 @@ Source code, issues and pull requests are on GitHub: <https://github.com/CyVeeru
 
 ## Product Screenshots
 
+### Dashboard: the Intelligence Feed
+
+![ThreatLens dashboard: live Intelligence Feed with Global / My organization switch, CIRT triage, filters and findings](client/public/screenshots/threatlens-dashboard-dark.png)
+
+### More views
+
 | Finding with detection coverage | Detection Library: named IoCs |
 | --- | --- |
 | ![A finding showing a Detection gap verdict and the Generate detection action](client/public/screenshots/threatlens-finding-coverage-dark.png) | ![Detection Library showing top threats by name and IoC feed status](client/public/screenshots/threatlens-detection-library-iocs-dark.png) |
