@@ -36,7 +36,7 @@ npm run db:restore-public
 
 That command creates the git-ignored `data/data.db` (or `THREATLENS_DB_PATH`), imports the sanitized
 public OSINT/TAP exports, and copies watermarked portraits from
-`data/public/portraits/` into `data/portraits/` so Actor Observatory cards render
+`data/public/portraits/` into `data/portraits/` so Threat Actors cards render
 locally. It refuses to overwrite an existing runtime DB unless called with
 `npm run db:restore-public -- --force`.
 

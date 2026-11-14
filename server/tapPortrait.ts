@@ -188,7 +188,7 @@ export async function getPortraitGeneratorAvailability(tenantId?: string): Promi
         available: true,
         tool: `${provider.provider}:auto-image-model`,
         installHint: "",
-        message: `Using ${provider.label} from AI Setup with an image-capable model selected automatically.`,
+        message: `Using ${provider.label} from AI Settings with an image-capable model selected automatically.`,
       };
     }
   }

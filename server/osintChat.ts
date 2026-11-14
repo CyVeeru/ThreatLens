@@ -1,6 +1,6 @@
 /**
  * Analyst chat — server-side glue for the global floating chatbot plus the
- * Intel Inbox CIRT workflows. Primary endpoints:
+ * Intelligence Feed CIRT workflows. Primary endpoints:
  *
  *   runChatTriage()   — bucketed CIRT tier triage report (Tier 1 -> Tier 4 +
  *                       Analyst Action Plan Summary) rendered as Markdown.
@@ -547,7 +547,7 @@ function buildDeepDiveHtml(
 
 // ---------------------------------------------------------------------------
 // Free-form chat converse. The global floating AI assistant can answer general
-// analyst questions, optionally grounded in visible Intel Inbox findings and
+// analyst questions, optionally grounded in visible Intelligence Feed findings and
 // server-fetched source URLs. It uses the dedicated osint_chat routing lane so
 // the chatroom can use a different provider from CIRT overview.
 // ---------------------------------------------------------------------------
@@ -685,11 +685,11 @@ export async function runChatConverse(storage: any, opts: RunChatConverseOpts): 
     // 409 "configure a real provider" response instead.
     blockMockOrThrow(
       "osint.chat.converse",
-      "No AI provider is assigned to the Analyst chat task. Assign one under AI Setup.",
+      "No AI provider is assigned to the Analyst chat task. Assign one under AI Settings.",
     );
     // Non-strict (development / first-run setup): keep the UI usable.
     const last = messages[messages.length - 1].content;
-    const reply = `**(no live AI provider configured)**\n\nI heard: _${last.slice(0, 200)}_\n\nConfigure the **Analyst chat** task under **AI Setup** for live answers.`;
+    const reply = `**(no live AI provider configured)**\n\nI heard: _${last.slice(0, 200)}_\n\nConfigure the **Analyst chat** task under **AI Settings** for live answers.`;
     return { reply, providerLabel: "mock", contextSize: findingCtx.length + sourceContext.length };
   }
 

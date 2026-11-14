@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tejacyberx.github.io/ThreatLens/sitemap.xml
+Sitemap: https://cyveeru.github.io/ThreatLens/sitemap.xml

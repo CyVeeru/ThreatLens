@@ -20,7 +20,7 @@ disable, or delete the seed accounts from Platform Users.
 |---|---|---|
 | **First-run accounts** `admin@threatlens.local`, `reviewer@threatlens.local` | Created by `ensurePlatformSeedUsers()` in `server/storage.ts` with a password generated per install (~124 bits); the plaintext is parked in `data/initial-credentials.json` (mode 600, git-ignored). | A password change is forced on first login, which prunes the account from `data/initial-credentials.json` and deletes the file once empty. Create named accounts, then delete the first-run accounts in Platform Users. MFA enrolment is offered and can be enforced with `THREATLENS_REQUIRE_MFA=1`. |
 | **Bearer sessions** | `auth_sessions.token_hash` (opaque token issued by `/api/v1/auth/login`). | Logout revokes the current session. Rotating all sessions means deleting rows from `auth_sessions`. |
-| **AI provider keys** | `data/secrets/threatlens-secrets.db` per tenant/provider. | `/#/ai-setup` → edit each row. Metadata and masks remain in `ai_providers`; encrypted ciphertext is stored separately and encrypted with the per-instance key in `data/.threatlens-kek`. |
+| **AI provider keys** | `data/secrets/threatlens-secrets.db` per tenant/provider. | `/#/ai-settings` → edit each row. Metadata and masks remain in `ai_providers`; encrypted ciphertext is stored separately and encrypted with the per-instance key in `data/.threatlens-kek`. |
 
 ## Threat model
 

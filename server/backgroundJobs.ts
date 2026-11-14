@@ -152,7 +152,7 @@ async function runAutoAnalyzeForTenant(tid: string): Promise<void> {
     storage.recordOsintAutoAnalyze(tid, {
       okCount: 0,
       failCount: 0,
-      error: "no live AI provider configured (set one under AI Setup)",
+      error: "no live AI provider configured (set one under AI Settings)",
     });
     return;
   }

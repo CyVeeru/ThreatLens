@@ -851,7 +851,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
     const tid = req.effectiveTenantId!;
     const ids = parsed.data.ids ?? [];
     const onlyUnanalyzed = !!parsed.data.onlyUnanalyzed;
-    if (!storage.resolveAiProvider(tid, "osint_analysis")) return res.status(409).json({ detail: "No AI provider configured for osint_analysis. Configure one in AI Setup." });
+    if (!storage.resolveAiProvider(tid, "osint_analysis")) return res.status(409).json({ detail: "No AI provider configured for osint_analysis. Configure one in AI Settings." });
     const label = ids.length > 0
       ? `OSINT AI analysis — ${ids.length} selected`
       : `OSINT AI analysis — ${onlyUnanalyzed ? "unanalyzed findings" : "all findings"}`;
@@ -1278,7 +1278,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
         storage.markAiJobRunning(jobId);
         storage.setAiJobProgress(jobId, 15);
         if (!storage.resolveAiProvider(tenantId, "osint_overview")) {
-          throw new Error("No live-tested AI provider is configured for CIRT triage. Open AI Setup, enable a provider, and assign it to OSINT overview.");
+          throw new Error("No live-tested AI provider is configured for CIRT triage. Open AI Settings, enable a provider, and assign it to OSINT overview.");
         }
         hb = setInterval(() => { try { storage.setAiJobHeartbeat(jobId); } catch { /* ignore */ } }, 30000);
         storage.setAiJobProgress(jobId, 35);
@@ -1340,7 +1340,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
         storage.markAiJobRunning(jobId);
         storage.setAiJobProgress(jobId, 15);
         if (!storage.resolveAiProvider(tenantId, "osint_analysis")) {
-          throw new Error("No live-tested AI provider is configured for CIRT deep dive. Open AI Setup, enable a provider, and assign it to OSINT analysis.");
+          throw new Error("No live-tested AI provider is configured for CIRT deep dive. Open AI Settings, enable a provider, and assign it to OSINT analysis.");
         }
         hb = setInterval(() => { try { storage.setAiJobHeartbeat(jobId); } catch { /* ignore */ } }, 30000);
         storage.setAiJobProgress(jobId, 35);

@@ -100,7 +100,7 @@ const RELEVANCE_LABEL: Record<TenantRelevance, string> = {
 const RELEVANCE_ORDER: TenantRelevance[] = ["targeted", "sector-match", "watching"];
 
 // Resolves the per-tenant AI provider configured for the `threat_actor_enrichment`
-// task in AI Setup. Falls back to the generic phrase "the configured AI provider"
+// task in AI Settings. Falls back to the generic phrase "the configured AI provider"
 // when nothing is configured yet so copy never says the wrong vendor name.
 function useAiTaskProviderLabel(task: string): string {
   const { data: assignments } = useQuery<{ assignments: Record<string, string> }>({
@@ -1058,7 +1058,7 @@ function PortraitActionMenu({
       return;
     }
     if (aiDisabled) {
-      toast({ title: "AI Setup incomplete", description: aiAvailability.disabledReason, variant: "destructive" });
+      toast({ title: "AI Settings incomplete", description: aiAvailability.disabledReason, variant: "destructive" });
       return;
     }
     setBusy("regen");
@@ -2109,7 +2109,7 @@ function ProviderPicker({
         <SelectValue placeholder="Default provider" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="__default__">Default (AI Setup)</SelectItem>
+        <SelectItem value="__default__">Default (AI Settings)</SelectItem>
         {providers.filter((p) => p.enabled && p.hasKey && p.lastTestOk === true).map((p) => (
           <SelectItem key={p.id} value={p.id}>
             {p.label}
@@ -2323,7 +2323,7 @@ function DetailSheet({ actorId, onClose }: { actorId: string | null; onClose: ()
                   prioritized action cluster on the right. Edit mode swaps the
                   cluster to ONLY Save/Reset/Cancel — JSON/DOCX/Generate/Re-enrich
                   are hidden in edit mode (they were disabled anyway). View mode
-                  surfaces Re-enrich + AI Setup as primary, with a More overflow
+                  surfaces Re-enrich + AI Settings as primary, with a More overflow
                   menu housing the export and exercise-generation actions. */}
               <div className="sticky top-0 z-20 border-b bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 backdrop-blur supports-[backdrop-filter]:bg-background/80">
                 <div className="px-5 sm:px-6 py-4 flex items-start gap-4">

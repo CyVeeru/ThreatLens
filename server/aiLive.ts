@@ -984,7 +984,7 @@ function firstImageFromGeminiEnvelope(parsed: any): { mimeType: string; dataBase
 }
 
 /**
- * Generate one TAP portrait image through the encrypted AI Setup provider row.
+ * Generate one TAP portrait image through the encrypted AI Settings provider row.
  * Supported in BatchOne:
  *   - OpenAI Image API: gpt-image-2 / gpt-image-1.5 / gpt-image-1
  *   - Gemini native image models: gemini-3.1-flash-image / gemini-3-pro-image

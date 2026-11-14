@@ -89,7 +89,7 @@ export function StaticDemoNoticeDialog() {
               <Route size={13} className="text-primary" /> Suggested review path
             </div>
             <p className="leading-6 text-muted-foreground">
-              Start in Intelligence Feed, inspect OSINT findings, open completed CIRT triage and deep-dive job examples, review generated hunt queries, browse Actor Observatory, then check AI Setup and Platform Users as read-only administration surfaces.
+              Start in Intelligence Feed, inspect OSINT findings, open completed CIRT triage and deep-dive job examples, review generated hunt queries, browse Threat Actors, then check AI Settings and Platform Users as read-only administration surfaces.
             </p>
           </div>
         </div>

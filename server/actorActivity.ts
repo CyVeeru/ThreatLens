@@ -5,7 +5,7 @@
  * (or the enrichment job) last wrote it, and it says nothing about whether the
  * actor is active *now*. The findings table already answers that — every
  * finding carries the actor names parsed out of it — but nothing surfaced it,
- * so the Actor Observatory showed month-old dossiers with no indication that
+ * so the Threat Actors showed month-old dossiers with no indication that
  * some of those actors were in today's intel and others had gone quiet.
  *
  * This module joins the two: for each dossier it reports when the actor was

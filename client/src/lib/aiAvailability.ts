@@ -21,6 +21,6 @@ export function useAiAvailability() {
     ...query,
     providers,
     hasUsableProvider,
-    disabledReason: hasUsableProvider ? undefined : "Complete AI Setup: enable a provider, save its API key, and pass the live connection test.",
+    disabledReason: hasUsableProvider ? undefined : "Complete AI Settings: enable a provider, save its API key, and pass the live connection test.",
   };
 }

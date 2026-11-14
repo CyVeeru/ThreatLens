@@ -1,5 +1,5 @@
 // Floating analyst chat backed by the configured AI provider. The CIRT Triage
-// + Deep Dive workflows live in OsintTriagePanel.tsx on the Intel Inbox page.
+// + Deep Dive workflows live in OsintTriagePanel.tsx on the Intelligence Feed page.
 //
 // The floating button is the bottom-right entry point. Clicking it opens a
 // right-side Sheet with a chat conversation backed by

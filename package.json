@@ -4,14 +4,14 @@
   "description": "ThreatLens - open-source CTI workstation: OSINT triage, threat actor profiles, CVE exploitation ranking, hunt-query generation with result capture, cases, and ATT&CK coverage.",
   "version": "1.0.0",
   "license": "Apache-2.0",
-  "author": "TejaCyberX (https://github.com/TejaCyberX)",
-  "homepage": "https://github.com/TejaCyberX/ThreatLens#readme",
+  "author": "CyVeeru (https://github.com/TejaCyberX)",
+  "homepage": "https://github.com/CyVeeru/ThreatLens#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TejaCyberX/ThreatLens.git"
+    "url": "git+https://github.com/CyVeeru/ThreatLens.git"
   },
   "bugs": {
-    "url": "https://github.com/TejaCyberX/ThreatLens/issues"
+    "url": "https://github.com/CyVeeru/ThreatLens/issues"
   },
   "keywords": [
     "threat-intelligence",

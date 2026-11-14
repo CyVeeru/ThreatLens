@@ -27,12 +27,12 @@ flowchart LR
 | Surface | Route | Purpose |
 |---|---|---|
 | Login and account security | `/#/` | Credentialed sign-in, temporary-password rotation, MFA enrollment |
-| Intel Inbox | `/#/osint` | Source review, finding triage, hunting-query review with result capture, CIRT-style analysis |
-| Review Desk | `/#/review` | Exploitation-ranked queue, triage SLAs, ATT&CK coverage, private-document ingest, reports |
+| Intelligence Feed | `/#/osint` | Source review, finding triage, hunting-query review with result capture, CIRT-style analysis |
+| Analyst Queue | `/#/review` | Exploitation-ranked queue, triage SLAs, ATT&CK coverage, private-document ingest, reports |
 | Cases | `/#/cases` | Investigations linking findings, actors, hunts and CVEs, with notes and timeline |
-| Actor Observatory | `/#/threat-actors` | Threat actor profile cards, detail dossiers, portrait handling |
-| AI Setup | `/#/ai-setup` | Provider key storage, provider status, BatchOne task routing |
-| Job Control | `/#/operations-audit` | AI/background job state, diagnostics, audit history |
+| Threat Actors | `/#/threat-actors` | Threat actor profile cards, detail dossiers, portrait handling |
+| AI Settings | `/#/ai-settings` | Provider key storage, provider status, BatchOne task routing |
+| Job Monitor | `/#/operations-audit` | AI/background job state, diagnostics, audit history |
 | Platform Users | `/#/platform-users` | Local BatchOne user administration |
 
 BatchOne intentionally exposes only the routes listed above. Workflows outside this release scope should not be linked from navigation or documented as available capabilities.
@@ -78,12 +78,12 @@ Some schema tables and storage methods are retained for safe migration from earl
 | `client/src/App.tsx` | Hash router and BatchOne route allowlist |
 | `client/src/components/AppShell.tsx` | Shared sidebar/topbar chrome and account controls |
 | `client/src/pages/Login.tsx` | Sign-in and account security setup entry |
-| `client/src/pages/OsintMonitoring.tsx` | Intel Inbox, sources, findings, hunt-query review |
-| `client/src/pages/ThreatActors.tsx` | Actor Observatory cards and TAP detail sheet |
-| `client/src/pages/ReviewQueue.tsx` | Review Desk: queue, SLA metrics, coverage, documents, reports |
+| `client/src/pages/OsintMonitoring.tsx` | Intelligence Feed, sources, findings, hunt-query review |
+| `client/src/pages/ThreatActors.tsx` | Threat Actors cards and TAP detail sheet |
+| `client/src/pages/ReviewQueue.tsx` | Analyst Queue: queue, SLA metrics, coverage, documents, reports |
 | `client/src/pages/Cases.tsx` | Case list and case detail sheet |
 | `client/src/pages/AISetup.tsx` | Provider configuration and task routing |
-| `client/src/pages/OperationsAudit.tsx` | Job Control and audit views |
+| `client/src/pages/OperationsAudit.tsx` | Job Monitor and audit views |
 | `client/src/pages/PlatformUsers.tsx` | BatchOne user management |
 
 Shared UI primitives live under `client/src/components/`; reusable release and access policy helpers live under `client/src/lib/`.
@@ -120,4 +120,4 @@ npm test
 npm run build
 ```
 
-For browser smoke testing, start the app with `npm run dev`, sign in with local seed credentials, rotate the temporary password, enroll MFA, and verify Intel Inbox, Actor Observatory, AI Setup, Job Control, and Platform Users.
+For browser smoke testing, start the app with `npm run dev`, sign in with local seed credentials, rotate the temporary password, enroll MFA, and verify Intelligence Feed, Threat Actors, AI Settings, Job Monitor, and Platform Users.

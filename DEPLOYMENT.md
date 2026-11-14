@@ -115,14 +115,14 @@ On a fresh `data/` volume the server seeds:
 * One internal BatchOne workspace scope (`BatchOne Workspace`, slug `batchone-workspace`). This is an implementation boundary for local data, not a client tenant-switching feature.
 * First-run accounts `admin@threatlens.local` and `reviewer@threatlens.local`, each with a password generated for this install and written to `data/initial-credentials.json`. **Sign in and change both immediately** — see [SECURITY.md](./SECURITY.md).
 * The curated BatchOne OSINT sources.
-* Per-tenant AI provider rows (all in `disabled` state until you supply a key at `/#/ai-setup`).
+* Per-tenant AI provider rows (all in `disabled` state until you supply a key at `/#/ai-settings`).
 
 After first boot:
 
 1. Log in.
 2. Change the temporary seed password, enroll MFA, then create named accounts and rotate or remove the seed accounts.
-3. Configure AI providers at `/#/ai-setup`. DeepSeek is recommended (live + productional, no fallback).
-4. Review OSINT sources on the Intel Inbox sources tab.
+3. Configure AI providers at `/#/ai-settings`. DeepSeek is recommended (live + productional, no fallback).
+4. Review OSINT sources on the Intelligence Feed sources tab.
 5. Use Platform Users for admin/reviewer account management.
 
 ## Logs

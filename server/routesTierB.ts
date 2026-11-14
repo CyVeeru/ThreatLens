@@ -399,7 +399,7 @@ export function registerTierBRoutes(app: Express, requireAuth: Middleware): void
     res.send(out.body);
   });
 
-  // STIX 2.1 export preview. The Intel Inbox calls this when an analyst opens
+  // STIX 2.1 export preview. The Intelligence Feed calls this when an analyst opens
   // the preview dialog over a selection, so it must stay cheap: it counts what
   // the bundle would contain without building or persisting one.
   app.get("/api/v1/exchange/stix/preview", requireAuth, (req: Authed, res) => {

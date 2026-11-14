@@ -248,7 +248,7 @@ export default function OsintAutomationCard() {
               <p className="text-xs text-muted-foreground">
                 The background analyser pulls findings off the queue and runs <strong>one CIRT deep-dive per finding</strong>{" "}
                 against the configured AI provider. Single-finding calls fit the 90s/6000-token budget, so they almost
-                never time out (unlike the 20-finding batch deep-dive). Requires a live AI provider under AI Setup.
+                never time out (unlike the 20-finding batch deep-dive). Requires a live AI provider under AI Settings.
               </p>
             </div>
             <Switch

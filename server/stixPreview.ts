@@ -1,7 +1,7 @@
 /**
  * STIX 2.1 preview for a selection of OSINT findings.
  *
- * The Intel Inbox lets an analyst select findings and preview what a STIX
+ * The Intelligence Feed lets an analyst select findings and preview what a STIX
  * export would contain before producing one. This module builds the bundle
  * in memory and reports its shape — object counts by type, plus any warnings
  * worth seeing before export (findings with no extractable indicators, IOCs

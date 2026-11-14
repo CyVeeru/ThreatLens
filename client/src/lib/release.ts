@@ -9,7 +9,7 @@ export const BATCH_ONE_ALLOWED_PATHS = new Set([
   "/organization",
   "/detections",
   "/review",
-  "/ai-setup",
+  "/ai-settings",
   "/operations-audit",
   "/platform-users",
 ]);

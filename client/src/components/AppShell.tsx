@@ -60,7 +60,7 @@ const navGroups: NavGroup[] = [
     id: "admin",
     label: "Operations",
     items: [
-      { href: "/ai-setup", label: "AI Settings", icon: BrainCircuit },
+      { href: "/ai-settings", label: "AI Settings", icon: BrainCircuit },
       { href: "/operations-audit", label: "Job Monitor", icon: ListChecks },
       { href: "/platform-users", label: "User Management", icon: Users, adminOnly: true },
     ],

@@ -14,10 +14,10 @@ see [DEPLOYMENT.md](../DEPLOYMENT.md) and [SECURITY.md](../SECURITY.md).
 1. [What ThreatLens is for](#1-what-threatlens-is-for)
 2. [The evidence model](#2-the-evidence-model)
 3. [First run](#3-first-run)
-4. [Intel Inbox — intake and triage](#4-intel-inbox--intake-and-triage)
-5. [Review Desk — the work queue](#5-review-desk--the-work-queue)
+4. [Intelligence Feed — intake and triage](#4-intelligence-feed--intake-and-triage)
+5. [Analyst Queue — the work queue](#5-analyst-queue--the-work-queue)
 6. [Cases — investigations](#6-cases--investigations)
-7. [Actor Observatory — dossiers](#7-actor-observatory--dossiers)
+7. [Threat Actors — dossiers](#7-threat-actors--dossiers)
 8. [Hunt queries and hunt results](#8-hunt-queries-and-hunt-results)
 9. [CVE enrichment and exploitation ranking](#9-cve-enrichment-and-exploitation-ranking)
 10. [ATT&CK coverage](#10-attck-coverage)
@@ -25,9 +25,11 @@ see [DEPLOYMENT.md](../DEPLOYMENT.md) and [SECURITY.md](../SECURITY.md).
 12. [Reports](#12-reports)
 13. [AI: what it does and what it will not do](#13-ai-what-it-does-and-what-it-will-not-do)
 14. [Roles and permissions](#14-roles-and-permissions)
-15. [Job Control and automation](#15-job-control-and-automation)
+15. [Job Monitor and automation](#15-job-monitor-and-automation)
 16. [A worked week](#16-a-worked-week)
 17. [Troubleshooting](#17-troubleshooting)
+18. [My Organization and the Global / My organization switch](#18-my-organization-and-the-global--my-organization-switch)
+19. [Detection Library](#19-detection-library)
 
 ---
 
@@ -108,9 +110,9 @@ TLS-terminating reverse proxy in front.
 
 ---
 
-## 4. Intel Inbox — intake and triage
+## 4. Intelligence Feed — intake and triage
 
-The Intel Inbox is where raw intelligence lands. Four tabs:
+The Intelligence Feed is where raw intelligence lands. Four tabs:
 
 ### Findings
 
@@ -164,13 +166,13 @@ Saved detection logic. See [section 8](#8-hunt-queries-and-hunt-results).
 ### Automation
 
 Background fetch and analyse, off by default. See
-[section 15](#15-job-control-and-automation).
+[section 15](#15-job-monitor-and-automation).
 
 ---
 
-## 5. Review Desk — the work queue
+## 5. Analyst Queue — the work queue
 
-The Intel Inbox is the firehose. The Review Desk is the part you are accountable
+The Intelligence Feed is the firehose. The Analyst Queue is the part you are accountable
 for. Five tabs:
 
 ### Queue
@@ -226,13 +228,13 @@ That timeline is what makes a case reportable. When you generate a
 `case_report`, it renders from the links and notes you actually recorded, with
 provenance tags intact.
 
-**Typical flow:** escalate a finding from the Review Desk → open a case → link
+**Typical flow:** escalate a finding from the Analyst Queue → open a case → link
 the finding, the CVE it references, and the actor dossier → draft a hunt query
 and link it → record what the hunt found → generate the case report.
 
 ---
 
-## 7. Actor Observatory — dossiers
+## 7. Threat Actors — dossiers
 
 Threat actor profiles. Each dossier holds aliases, actor type, threat level,
 TLP marking, target geographies and industries, plus sub-resources:
@@ -484,22 +486,22 @@ configurable.
 
 ---
 
-## 15. Job Control and automation
+## 15. Job Monitor and automation
 
 Long-running work — AI analysis, scans, reanalysis — runs as a **job**, not as a
 blocking request.
 
-Job Control shows active jobs, failures with diagnostics, recently completed
+Job Monitor shows active jobs, failures with diagnostics, recently completed
 work and the audit log. Jobs can be cancelled while queued or running, and
 cancellation is real: it propagates an `AbortSignal` through to the in-flight
 HTTP request, rather than marking a row cancelled and letting the work continue.
 
-**Automation** (Intel Inbox → Automation) is what keeps the workspace current
+**Automation** (Intelligence Feed → Automation) is what keeps the workspace current
 without anyone clicking. Two independent switches:
 
 - **Auto-fetch** walks the catalog every `fetchIntervalMin` minutes over a
   rolling 3-day window and stores whatever is new. No AI, so it is cheap and
-  fast — this is the one to turn on if you want the Intel Inbox to stay live.
+  fast — this is the one to turn on if you want the Intelligence Feed to stay live.
 - **Auto-analyse** runs per-finding AI analysis on newly ingested items, so a
   later deep dive is instant retrieval rather than a wait. This calls your
   provider once per finding: on a slow or metered model it is the expensive
@@ -516,7 +518,7 @@ pace from there.
 
 A realistic loop for one analyst:
 
-**Monday — intake.** Scan the catalog. Work the Review Desk queue: triage or
+**Monday — intake.** Scan the catalog. Work the Analyst Queue queue: triage or
 dismiss everything from the weekend. Escalate what is relevant to your
 organisation's technology and sector.
 
@@ -545,7 +547,7 @@ new means nothing new. Check the Sources tab for last-fetch times to confirm
 feeds are actually being reached; the scan result also reports how many feeds
 answered (`feedsOk` of `feedsTried`).
 
-**The Intel Inbox looks frozen / the news is old.** Check Automation: if
+**The Intelligence Feed looks frozen / the news is old.** Check Automation: if
 auto-fetch is off, nothing refreshes on its own and the workspace only advances
 when someone presses **Scan now**. Turn on auto-fetch, and run **Refresh all
 sources** once to backfill the gap.
@@ -557,7 +559,7 @@ skipped unless a deep parser handles it.
 
 **AI calls fail with 409 or 502.** That is strict mode working. The message
 carries the provider's own error. Check the key, the base URL and the model name
-in AI Setup — the provider test button reports the real failure.
+in AI Settings — the provider test button reports the real failure.
 
 **CVE enrichment returns nothing.** The cache may be empty on a new install.
 Trigger enrichment explicitly for the CVEs you care about; background enrichment
@@ -570,3 +572,31 @@ clients unless `THREATLENS_SHOW_SEED_CREDENTIALS=1`.
 **The UI is unreachable from another machine.** ThreatLens binds to
 `127.0.0.1` by default. Set `THREATLENS_HOST=0.0.0.0`, and put TLS in front
 before you do.
+
+---
+
+## 18. My Organization and the Global / My organization switch
+
+Open **My Organization** and add the vendors, products and cloud services you run (use *Quick add* for common ones). Give each a criticality and optional aliases (for example "FortiOS" for Fortinet).
+
+Every finding is matched against that profile using whole-word, alias-aware matching. Matches get an **Affects you** badge with a priority:
+
+- **Urgent**: matches your technology and is in CISA KEV, has EPSS of 0.5 or higher, or has a critical CVSS score.
+- **High**: matches a critical asset or a high CVSS score.
+- **Watch**: matches, but with no exploitation signal yet.
+
+The **Global / My organization** switch at the top of the Intelligence Feed and the Analyst Queue filters the view to what affects you and sorts by priority.
+
+## 19. Detection Library
+
+The Detection Library has three tabs:
+
+- **Named IoCs**: indicators from open feeds (abuse.ch Feodo Tracker, C2IntelFeeds, OpenPhish, CIRCL OSINT), grouped by threat name. Pick a name and use *Export for EDR* to download a blocklist in the import format of CrowdStrike, Defender for Endpoint, SentinelOne, Cortex XDR, Elastic or Splunk.
+- **Detection rules**: searchable Sigma and YARA rules with filters for source, severity and ATT&CK technique. Open a Sigma rule to convert it to Defender KQL, CrowdStrike CQL, SentinelOne, Cortex XQL, Elastic or Splunk. The converter is rule-based (no AI) and supports process-creation rules; test every converted query before deploying.
+- **MITRE ATT&CK**: the Enterprise matrix coloured by how many library rules detect each technique. Click a technique for MITRE's own detection guidance, its sub-techniques and a jump to the matching rules. *Show gaps only* hides covered techniques.
+
+Click **Refresh feeds** to sync the sources; they also refresh in the background.
+
+On any finding, the **Existing detections** panel shows a verdict (covered, partial, gap or cannot assess), the rules that match, and **Generate detection** to write a new rule with your AI provider. Technique inference from text is marked "inferred": treat it as a hint. AI-written rules are checked automatically and carry REVIEW notes for anything suspicious; a person must review them before deployment.
+
+Licences: SigmaHQ rules are under the Detection Rule License 1.1 (keep the author attribution), YARA rules from ReversingLabs are MIT, and ATT&CK is used under MITRE's terms. Rules and feeds are downloaded at runtime and are not redistributed with this repository.

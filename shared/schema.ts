@@ -701,7 +701,7 @@ export const AI_TASKS = [
   // sections + appendices from primaryName + aliases).
   "threat_actor_enrichment",
   // Provider-backed image generation for TAP portraits. This lets BatchOne use
-  // encrypted AI Setup credentials instead of requiring a local image CLI.
+  // encrypted AI Settings credentials instead of requiring a local image CLI.
   "tap_portrait",
 ] as const;
 export type AiTask = typeof AI_TASKS[number];
@@ -2139,7 +2139,7 @@ export const threatActorEnrichSchema = z.object({
   // Replace existing content even if non-empty.
   force: z.boolean().optional().default(false),
   // Optional one-off provider override. When omitted, the resolver picks the
-  // tenant default per the AI Setup assignments. Used by the TAP detail
+  // tenant default per the AI Settings assignments. Used by the TAP detail
   // sheet's "Re-enrich with…" picker (v2.30.6).
   providerId: z.string().uuid().nullable().optional(),
 });

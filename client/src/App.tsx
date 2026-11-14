@@ -71,7 +71,7 @@ function ProtectedRoutes() {
           return <Cases />;
         case "/review":
           return <ReviewQueue />;
-        case "/ai-setup":
+        case "/ai-settings":
           return reviewOnly ? <OsintMonitoring /> : <AISetup />;
         case "/operations-audit":
           return reviewOnly ? <OsintMonitoring /> : <OperationsAudit />;
@@ -90,7 +90,7 @@ function ProtectedRoutes() {
       <Route path="/organization" component={Organization} />
       <Route path="/detections" component={DetectionLibrary} />
       <Route path="/review" component={ReviewQueue} />
-      <Route path="/ai-setup">{reviewOnly ? <OsintMonitoring /> : <AISetup />}</Route>
+      <Route path="/ai-settings">{reviewOnly ? <OsintMonitoring /> : <AISetup />}</Route>
       <Route path="/operations-audit">{reviewOnly ? <OsintMonitoring /> : <OperationsAudit />}</Route>
       <Route path="/platform-users">{user.role === "admin" ? <PlatformUsers /> : <OsintMonitoring />}</Route>
       <Route component={NotFound} />

@@ -1,6 +1,6 @@
 # Contributors
 
-ThreatLens is maintained by [TejaCyberX](https://github.com/TejaCyberX).
+ThreatLens is maintained by [CyVeeru](https://github.com/CyVeeru).
 
 Parts of the implementation, review and documentation were AI-assisted
 (OpenAI Codex and Anthropic Claude). Every AI-assisted change is reviewed and

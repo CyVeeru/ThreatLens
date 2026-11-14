@@ -98,6 +98,6 @@ This creates local git-ignored runtime files such as `data.db` and `data/portrai
   credentials; change them at first sign-in and enrol MFA before using
   ThreatLens with real data.
 - AI provider keys are never bundled in public seed data. Configure them locally
-  in AI Setup after verification.
+  in AI Settings after verification.
 - Report suspected signing-key compromise or release tampering using the
   process in `SECURITY.md`.

@@ -8,12 +8,12 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="License: Apache-2.0"></a>
   <img src="https://img.shields.io/badge/node-20.x%20%7C%2022.x-339933.svg?logo=node.js&logoColor=white" alt="Node 20.x | 22.x">
   <img src="https://img.shields.io/badge/stack-React%2018%20%C2%B7%20Express%205%20%C2%B7%20SQLite-4F46E5.svg" alt="Stack">
-  <a href="https://github.com/TejaCyberX/ThreatLens/actions/workflows/release.yml"><img src="https://github.com/TejaCyberX/ThreatLens/actions/workflows/release.yml/badge.svg?branch=main" alt="Code quality workflow"></a>
-  <a href="https://github.com/TejaCyberX/ThreatLens/actions/workflows/codeql.yml"><img src="https://github.com/TejaCyberX/ThreatLens/actions/workflows/codeql.yml/badge.svg?branch=main" alt="CodeQL security analysis"></a>
-  <a href="https://snyk.io/test/github/TejaCyberX/ThreatLens"><img src="https://snyk.io/test/github/TejaCyberX/ThreatLens/badge.svg" alt="Known Vulnerabilities"></a>
+  <a href="https://github.com/CyVeeru/ThreatLens/actions/workflows/release.yml"><img src="https://github.com/CyVeeru/ThreatLens/actions/workflows/release.yml/badge.svg?branch=main" alt="Code quality workflow"></a>
+  <a href="https://github.com/CyVeeru/ThreatLens/actions/workflows/codeql.yml"><img src="https://github.com/CyVeeru/ThreatLens/actions/workflows/codeql.yml/badge.svg?branch=main" alt="CodeQL security analysis"></a>
+  <a href="https://snyk.io/test/github/CyVeeru/ThreatLens"><img src="https://snyk.io/test/github/CyVeeru/ThreatLens/badge.svg" alt="Known Vulnerabilities"></a>
 </p>
 
-ThreatLens Batch One is an open-source cyber threat intelligence (CTI) workstation for security analysts, threat-intelligence teams, detection engineers, and managed security service providers. It connects open-source intelligence (OSINT) monitoring, evidence review, Threat Actor Profiles, AI-assisted triage, and defensive hunt-query drafting in one local analyst workspace.
+ThreatLens is an open-source cyber threat intelligence (CTI) workstation for security analysts, threat-intelligence teams, detection engineers, and managed security service providers. It connects open-source intelligence (OSINT) monitoring, evidence review, Threat Actor Profiles, AI-assisted triage, and defensive hunt-query drafting in one local analyst workspace.
 
 The core workflow is simple: collect public threat signals, review the evidence, enrich actor context, draft hunt logic for SIEM and detection platforms, and keep source traceability visible from intake to action.
 
@@ -21,17 +21,36 @@ Before running a downloaded release archive, verify its checksum and signature w
 
 This release is deliberately focused: a clean, inspectable workstation for open-source intelligence review and threat-actor analysis. It is built to be useful on day one, while leaving the product room to grow through future public releases.
 
-Static demo site: [tejacyberx.github.io/ThreatLens](https://tejacyberx.github.io/ThreatLens/).
+## About
+
+**ThreatLens is a free, open-source tool** (Apache License 2.0) built for SOC analysts, CTI analysts, detection engineers and incident responders. It collects public threat intelligence, tells you which of it affects *your* organization, shows whether you already have a detection for it, and helps you write the missing detection for your EDR or SIEM, all in one local workstation. You run it yourself; there is no hosted service, no account to create with us, and no telemetry.
+
+Source code, issues and pull requests are on GitHub: <https://github.com/CyVeeru/ThreatLens>. Anyone may use, modify and redistribute it under the licence terms.
+
+### What you can do with it
+
+- **Know what matters to you.** Tell it which vendors and products you run (My Organization), then switch the feed and the analyst queue between *Global* and *My organization*. Findings are ranked by real exploitation evidence (CISA KEV, EPSS, CVSS) and your asset criticality.
+- **See what is already detected.** The Detection Library holds named IoCs from open feeds, 2,600+ Sigma rules, YARA rules and a MITRE ATT&CK matrix coloured by rule coverage. Every finding gets a coverage verdict: covered, partial or gap.
+- **Close the gap.** Export IoCs in the import format of CrowdStrike, Defender for Endpoint, SentinelOne, Cortex XDR, Elastic and Splunk. Convert Sigma rules to EDR queries with a deterministic converter, or generate IoAs and EDR-native rules with your own AI key (AI output is linted and flagged for human review).
+- **Investigate.** Cases, Threat Actor Profiles, hunt queries for seven platforms, ATT&CK Navigator layers and one-click reports.
 
 ## Product Screenshots
 
-| Intel Inbox | Threat Actor Profiles |
+| Finding with detection coverage | Detection Library: named IoCs |
 | --- | --- |
-| ![ThreatLens Intel Inbox showing OSINT findings, source context, and analyst triage controls](client/public/screenshots/threatlens-intel-inbox-dark.png) | ![ThreatLens Actor Observatory showing threat actor profiles, portraits, priority, aliases, and evidence context](client/public/screenshots/threatlens-threat-actor-profiles-dark.png) |
+| ![A finding showing a Detection gap verdict and the Generate detection action](client/public/screenshots/threatlens-finding-coverage-dark.png) | ![Detection Library showing top threats by name and IoC feed status](client/public/screenshots/threatlens-detection-library-iocs-dark.png) |
 
-| Threat Actor Profile Detail | AI Setup |
+| MITRE ATT&CK coverage | Sigma to EDR converter |
 | --- | --- |
-| ![ThreatLens Threat Actor Profile detail dossier with actor identity, evidence, aliases, and investigation context](client/public/screenshots/threatlens-threat-actor-profile-detail-dark.png) | ![ThreatLens AI Setup showing bring-your-own-provider configuration for analyst workflows](client/public/screenshots/threatlens-ai-setup-dark.png) |
+| ![ATT&CK matrix coloured by how many library rules detect each technique](client/public/screenshots/threatlens-mitre-attack-coverage-dark.png) | ![A Sigma rule converted to a Microsoft Defender KQL query, with other EDR targets](client/public/screenshots/threatlens-sigma-to-edr-converter-dark.png) |
+
+| My Organization | Analyst Queue |
+| --- | --- |
+| ![Organization profile with exposure counts and top exposure ranking](client/public/screenshots/threatlens-my-organization-dark.png) | ![Analyst Queue with the Global and My organization switch](client/public/screenshots/threatlens-analyst-queue-dark.png) |
+
+| Threat Actors |
+| --- |
+| ![Threat Actor Profiles with portraits, aliases and priority](client/public/screenshots/threatlens-threat-actors-dark.png) |
 
 ## Repository Summary
 
@@ -62,7 +81,7 @@ ThreatLens is relevant if you are searching for:
 
 ## Key Capabilities
 
-Batch One focuses on the analyst workflow from signal intake to defense-ready output:
+ThreatLens focuses on the analyst workflow from signal intake to defense-ready output:
 
 - **Intelligence Feed** for parsed OSINT findings, source review, AI triage, CIRT-style deep dive, and finding-level analysis. The feed refreshes itself while open.
 - **My Organization** to tell ThreatLens what you run (vendors, products, cloud). Every finding is matched against it, and a **Global / My organization** switch in the feed and queue shows only what affects you, ranked by exposure (KEV, EPSS, asset criticality).
@@ -80,19 +99,17 @@ Batch One focuses on the analyst workflow from signal intake to defense-ready ou
 
 ## Release Scope
 
-Batch One is intentionally focused on the analyst workstation experience: Intel Inbox, Actor Observatory, Threat Actor Profiles, Hunting Queries, AI Setup, Job Control, and local platform access controls. It is designed to be useful as a public open-source release while keeping the operating surface clear, inspectable, and easy to run locally.
+ThreatLens 1.0 covers the analyst workstation end to end: Intelligence Feed, Analyst Queue, Cases, My Organization, Detection Library, Threat Actors, hunt queries, AI Settings, Job Monitor and local access controls.
 
-Some broader platform capabilities are outside this public release. Rather than exposing every internal module or future direction, this repository keeps the Batch One boundary simple: threat-intelligence intake, actor analysis, and evidence-led hunting workflows.
-
-Follow the repository for future public releases as the project expands its evidence-led security operations workflows.
+Known limits: the Sigma-to-EDR converter handles process-creation rules only; abuse.ch ThreatFox, URLhaus and MalwareBazaar are not integrated yet; exported EDR import formats are generated from vendor documentation and should be tested in your console before production use; AI-generated rules always need human review.
 
 ## Quick Start
 
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/TejaCyberX/ThreatLens.git
-cd Threatlens
+git clone https://github.com/CyVeeru/ThreatLens.git
+cd ThreatLens
 npm install
 ```
 
@@ -158,7 +175,7 @@ recommended; set `THREATLENS_REQUIRE_MFA=1` to make enrolment mandatory.
 
 ### 5. Add your AI provider key
 
-Open `/#/ai-setup` and add your own AI provider key. ThreatLens supports live routing for DeepSeek, OpenAI, Anthropic, and Google Gemini.
+Open `/#/ai-settings` and add your own AI provider key. ThreatLens supports live routing for DeepSeek, OpenAI, Anthropic, and Google Gemini.
 
 AI provider keys are stored separately from public seed data. They are not bundled with the repository and are not restored from the public seed data. When strict mode is enabled, unavailable or misconfigured providers return real setup errors instead of silent mock output.
 
@@ -341,14 +358,22 @@ Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
 
 Useful guardrails:
 
-- Keep BatchOne scoped to Intel Inbox, Actor Observatory, AI Setup, Job Control, Platform Users, and supporting APIs.
+- Keep BatchOne scoped to Intelligence Feed, Threat Actors, AI Settings, Job Monitor, Platform Users, and supporting APIs.
 - Do not expand the release surface without an explicit BatchOne scope decision.
 - Use `apiRequest` on the client rather than raw `fetch`.
-- Keep long AI work asynchronous and visible in Job Control.
+- Keep long AI work asynchronous and visible in Job Monitor.
 - Do not commit runtime databases, secret stores, generated screenshots, logs, or uploaded private portraits.
+
+## Open Source
+
+ThreatLens is released under the [Apache License 2.0](./LICENSE). You are free to use it commercially, modify it and redistribute it, provided you keep the licence and [NOTICE](./NOTICE) files. Third-party data it downloads at runtime keeps its own licence and is not redistributed in this repository: SigmaHQ rules (Detection Rule License 1.1), ReversingLabs YARA rules (MIT), MITRE ATT&CK (MITRE terms of use) and the abuse.ch, OpenPhish and CIRCL feeds. See [NOTICE](./NOTICE) for details.
+
+Contributions are welcome: read [CONTRIBUTING.md](./CONTRIBUTING.md) and the [Code of Conduct](./CODE_OF_CONDUCT.md), then open an issue or a pull request. Report security problems privately as described in [SECURITY.md](./SECURITY.md).
 
 ## Further Reading
 
+
+- [docs/DETECTION-LIBRARY.md](./docs/DETECTION-LIBRARY.md) - design and data sources of the Detection Library, org matching and the Sigma converter.
 - [docs/USER-GUIDE.md](./docs/USER-GUIDE.md) - how to run the workflow: triage, cases, hunts, CVE ranking, ATT&CK coverage, reports.
 - [ARCHITECTURE.md](./ARCHITECTURE.md) - system architecture and refactor notes.
 - [SECURITY.md](./SECURITY.md) - security model, secret handling, and responsible disclosure.
@@ -366,4 +391,4 @@ See [CONTRIBUTORS.md](./CONTRIBUTORS.md) for the full contributor note.
 
 Apache License 2.0. See [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
 
-<sub>Maintained by <a href="https://github.com/TejaCyberX">TejaCyberX</a>. Issues and pull requests welcome.</sub>
+<sub>Maintained by <a href="https://github.com/CyVeeru">TejaCyberX</a>. Issues and pull requests welcome.</sub>

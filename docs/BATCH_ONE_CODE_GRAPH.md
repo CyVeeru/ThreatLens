@@ -4,7 +4,7 @@ This note maps the active BatchOne release surface after the route and module cl
 
 ## Release Boundary
 
-BatchOne exposes Intel Inbox, Actor Observatory/TAP, AI Setup, and Operations Audit/Job Control. The client route list is in `client/src/App.tsx`, and the server API allow-list is in `shared/accessPolicy.ts`.
+BatchOne exposes Intelligence Feed, Threat Actors/TAP, AI Settings, and Operations Audit/Job Monitor. The client route list is in `client/src/App.tsx`, and the server API allow-list is in `shared/accessPolicy.ts`.
 
 Some compatibility schema and storage fields remain because bundled SQLite workspaces may still carry older table shapes. In BatchOne, capabilities outside the release scope are not linked from navigation and are blocked by the API allow-list before route handlers run.
 
@@ -137,8 +137,8 @@ flowchart LR
 ## Active Modules
 
 - `client/src/App.tsx`: BatchOne route allow-list and cache warming.
-- `client/src/pages/OsintMonitoring.tsx`: Intel Inbox, sources, CIRT triage, hunt queries.
-- `client/src/pages/ThreatActors.tsx`: Actor Observatory/TAP list and dossier detail.
+- `client/src/pages/OsintMonitoring.tsx`: Intelligence Feed, sources, CIRT triage, hunt queries.
+- `client/src/pages/ThreatActors.tsx`: Threat Actors/TAP list and dossier detail.
 - `client/src/pages/AISetup.tsx`: provider setup for the explicit BatchOne AI task set.
 - `client/src/pages/OperationsAudit.tsx`: audit rows and job control.
 - `server/authz.ts` and `shared/accessPolicy.ts`: role/capability resolution and API boundary.

@@ -917,7 +917,7 @@ function seedIfEmpty() {
       monitoredDomains: j(s.domains), ipRanges: j(s.ipRanges),
       executiveEmails: j([]),
     }).run();
-    // seed AI providers per tenant (so the AI Setup page is pre-populated)
+    // seed AI providers per tenant (so the AI Settings page is pre-populated)
     seedAiProvidersIfEmpty(tid);
 
     // Seed minimal workspace context for legacy rows that still carry scope
@@ -2663,7 +2663,7 @@ export const storage = {
     // at ingest time is what made this return nothing: it ran the deep parsers
     // only and then required a tech match, so current reporting from the other
     // 80-odd feeds was discarded before it was ever stored. Filtering happens
-    // at view time, which is what the Intel Inbox filters already do.
+    // at view time, which is what the Intelligence Feed filters already do.
     const days = Math.max(1, Math.min(90, opts.days ?? 7));
     // `maxFindings` is how many findings the caller wants back, not how much to
     // ingest. Conflating them capped the whole walk: the deep parsers consumed
@@ -3615,7 +3615,7 @@ export const storage = {
     if (shouldGenerate) {
       const provider = storage.resolveAiProvider(tid, "detection_rule");
       if (!provider) {
-        throw new Error("no AI provider is configured for detection_rule — connect one in AI Setup");
+        throw new Error("no AI provider is configured for detection_rule — connect one in AI Settings");
       }
       // Pre-fetch source URLs so the model reads the article body verbatim.
       const fetched = await fetchSourcesBatch(findings.map((f) => f.url), { includeReferences: true, maxReferenceLinks: 3 });
@@ -4488,7 +4488,7 @@ export const storage = {
     }
     if (!provider) provider = storage.resolveAiProvider(tid, "threat_actor_enrichment");
     if (!provider) {
-      throw new Error("no AI provider is configured for threat_actor_enrichment — connect one in AI Setup");
+      throw new Error("no AI provider is configured for threat_actor_enrichment — connect one in AI Settings");
     }
     // force=false (create + enrich, backfill) only fills an actor that has never
     // been enriched; force=true (the analyst's "Re-analyse" action) replaces
