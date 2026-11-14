@@ -397,4 +397,4 @@ See [CONTRIBUTORS.md](./CONTRIBUTORS.md) for the full contributor note.
 
 Apache License 2.0. See [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
 
-<sub>Maintained by <a href="https://github.com/CyVeeru">TejaCyberX</a>. Issues and pull requests welcome.</sub>
+<sub>Maintained by <a href="https://github.com/CyVeeru">CyVeeru</a> (Veerateja Arroju) · <a href="https://www.linkedin.com/in/veerateja-arroju-a730061b9/">LinkedIn</a>. Issues and pull requests welcome.</sub>
